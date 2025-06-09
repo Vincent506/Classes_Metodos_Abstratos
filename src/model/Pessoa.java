@@ -29,35 +29,45 @@ public class Pessoa{
             System.out.println("Contatos cheio");
         }
     }
+
 //retorna o vetor de contatos de um tipo
-    public void getContatoTipo(String tipo){
-            System.out.println("Contatos telefonicos:");
+    public Contato[] getContatoTipo(String tipo){
+        Contato[] tipados = new Contato[max];
             for (int i = 0; i < cont; i++) {
-                if (contatos[i].getContato().equalsIgnoreCase("telefone")) {
-                    System.out.println(contatos[i]+" ->");    
-                } 
+                if (contatos[i].getContato().equalsIgnoreCase(tipo)) {
+                    tipados[i] = contatos[i];
+                }
             }
-            System.out.println("Contatos de email:");
-            for (int j = 0; j < cont; j++) {
-                if (contatos[j].getContato().equalsIgnoreCase("email")) {
-                 System.out.println(contatos[j]+" ->");
-                }   
-            }
+            return tipados;
         }
     
 //retorna uma verificação se a pessoa tem ou não contatos do tipo telefone
     public boolean possuiTelefone(){
-        for (int i = 0; i < contatos.length; i++) {
-            if (contatos[i].getContato().equalsIgnoreCase("Telefone")) {
-                return false;
-                
-            }
+        String cell = "telefone";
+        Contato[] telefones = getContatoTipo(cell);
+        boolean verification = false;
+        if (telefones != null) {
+            verification = true;
         }
-        return true;
+        return verification;
     }
 //retorna uma verificação se a pessoa tem ou não contatos do tipo email
     public boolean possuiEmail(){
-        return true;
+        String mail = "email";
+        Contato[] emails = getContatoTipo(mail);
+        boolean verification = false;
+        if (emails != null) {
+            verification = true;
+        }
+        return verification;
     }
+
+    public void exibirContatos(){
+        for (int i = 0; i < cont; i++) {
+            contatos[i].exibir();
+        }
+    }
+
+    
 
 }
