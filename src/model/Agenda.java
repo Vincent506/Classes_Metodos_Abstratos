@@ -69,14 +69,17 @@ public class Agenda {
         }
     }
 
-    public String recuperarPessoaPorEmail(String email){
-        String recuperado = null;
-        for (int i = 0; i < cont; i++) {
-            if (pessoas[i].possuiEmail() == true) {
-                recuperado = pessoas[i].getNome();
-            }
+    public void recuperarPessoaPorEmail(String email){
+        for (int j = 0; j < cont; j++) {
+            
+            for (int i = 0; i < cont; i++) {
+                if (pessoas[i].possuiEmail() == true) {
+                    
+                }
+            }    
         }
-        return recuperado;
+        
+        
     }
     
     public String recuperarPessoaPorTelefone(String telefone){
