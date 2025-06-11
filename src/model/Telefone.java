@@ -5,13 +5,13 @@ public class Telefone extends Contato{
 
     public String getTelefone(){return telefone;}
 
-    public Telefone(String telefone){
-        super("telefone");
+    public Telefone(String tipo,String telefone){
+        super(tipo);
         this.telefone = telefone;
     }
 
     @Override
     public void exibir() {
-        System.out.println("Esse contato é do tipo: "+getTelefone());
+        System.out.println("Esse contato é do tipo: "+tipo);
     }
 }

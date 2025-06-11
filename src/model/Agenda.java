@@ -71,25 +71,26 @@ public class Agenda {
 
     public void recuperarPessoaPorEmail(String email){
         for (int j = 0; j < cont; j++) {
-            
-            for (int i = 0; i < cont; i++) {
-                if (pessoas[i].possuiEmail() == true) {
-                    
+            Contato[] emails = pessoas[j].getContatoTipo("email");
+            for (Contato contato : emails) {
+                if (contato != null && contato.getContato().equalsIgnoreCase(email)) {
+                    System.out.println("Pessoa: "+pessoas[j].getNome());
+                    break;
                 }
             }    
         }
-        
-        
     }
     
-    public String recuperarPessoaPorTelefone(String telefone){
-        String recuperado = null;
+    public void recuperarPessoaPorTelefone(String telefone){
         for (int i = 0; i < cont; i++) {
-            if (pessoas[i].possuiTelefone() == true) {
-                recuperado = pessoas[i].getNome();
+            Contato[] telefones = pessoas[i].getContatoTipo("telefone");
+            for(Contato contato : telefones){
+                if (contato != null && contato.getContato().equalsIgnoreCase(telefone)) {
+                    System.out.println("Pessoa: "+pessoas[i].getNome());
+                    break;
+                }
             }
-        }
-        return recuperado;
+         }
     }
 
 }
